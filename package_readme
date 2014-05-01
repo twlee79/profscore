@@ -1,0 +1,231 @@
+profscore: Profile Conservation Scoring v1.0.8
+==============================================
+
+Copyright (c) Tet Woo Lee <tw.lee(at)auckland.ac.nz> 
+Date 2014-04
+
+License
+-------
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Description
+-----------
+
+Python 2.7 script using numpy and BioPython librates that calculates Valdar 
+conservation scores and profile-based consensus sequences and conservation 
+scores. Includes features to analyse a subset of sequences and calculate 
+scores from a random subset of sequences.
+
+
+Key contents
+------------
+
+README
+  This file.
+
+profscore.py
+  Main script for calculation of scores. For usage, see below and example
+  directory. Tested with Python 2.7.6, numpy 1.9.0 and BioPython 1.63.
+  
+pymol_calc_accessibility.py
+  PyMol script for calculating solvent-accessible surface area for each 
+  residue in a protein structure. Calculates surface area for all atoms
+  and side-chain atoms only. Tested with PyMOL Version 1.6.9.0.
+  
+Valdar2001
+  Valdar 2001 scoring matrix used for scoring sequence conservation. This is
+  a modified Pairwise Exchange Table (PET91) matrix with "all diagonal elements
+  set constant and equal to the rounded average of diagonal elements in the
+  unmodified matrix" and linear transformed to be in the range of [0.0-1.0].
+  See Valdar and Thornton 2001 Proteins 42: 108-124 (PMID: 11093265) and
+  Valdar 2002 Proteins 48:227-241 (PMID: 12112692). The actual matrix given
+  here was not recalculated from the PET91 matrix, but instead obtained
+  from the 'scorecons' server
+  (https://www.ebi.ac.uk/thornton-srv/databases/cgi-bin/valdar/scorecons_server.pl).
+
+example/antithrombin/antithrombin_analysis.txt
+  Example commands and output of using the scripts to analyse antithrombin 
+  sequences.
+
+example/neuroserpin/neuroserpin_analysis.txt
+  Example commands and output of using the scripts to analyse neuroserpin 
+  sequences.
+
+doc/html/index.html
+  Detailed documentation for classes and functions in the script file.
+
+Usage Details: profscore.py
+---------------------------
+
+usage: profscore.py [-h] [-v] [--version] [--overwrite] [-s SUBSET]
+                    [-t {VALDAR,PROFILE,PROFILE_UNCORR}] [-m SUBSMAT]
+                    [--diagonal DIAGONAL] [--gap GAP] [--gapgap GAPGAP]
+                    [--uniform] [-c CUTOFF] [--propcutoff PROPCUTOFF]
+                    [-n NUMRND] [--rndsubset RNDSUBSET]
+                    [-i [RNDINFILE [RNDINFILE ...]]] [-p RNDOUTFILE]
+                    [-o OUTFILE] [-r REFID] [--outsubset OUTSUBSET]
+                    [--outpos {PRESENT,ALL,REFERENCE}] [--simplenum]
+                    [--numstart NUMSTART] [--blockoutput] [--completeprofile]
+                    [--pfraction]
+                    infile
+
+Calculates sequence conservation scores
+
+positional arguments:
+  infile                input alignment to process, fasta format
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --verbose         produce verbose output, increase number of times
+                        specified to increase verbosity (default: None)
+  --version             show program's version number and exit
+  --overwrite           force overwriting of output files (default: False)
+
+score parameters:
+  parameters for score calculation
+
+  -s SUBSET, --subset SUBSET
+                        subset of sequences to analyse, selected by regular
+                        expression search for SUBSET (default: .*)
+  -t {VALDAR,PROFILE,PROFILE_UNCORR}, --type {VALDAR,PROFILE,PROFILE_UNCORR}
+                        type of conservation score calculated, VALDAR for
+                        Valdar score, PROFILE for (corrected) profile-based
+                        score, PROFILE_UNCORR for uncorrected profile-based
+                        score (default: PROFILE)
+  -m SUBSMAT, --subsmat SUBSMAT
+                        substitution matrix to use, aaindex2 format (default:
+                        Valdar2002)
+  --diagonal DIAGONAL   score to use for diagonal elements in substitution
+                        matrix (identities), set prior to matrix
+                        transformation, if none the rounded average of
+                        diagonal elements in the unmodified matrix used
+                        (default: None)
+  --gap GAP             score to use for gaps, set after matrix transformation
+                        (default: 0.0)
+  --gapgap GAPGAP       score to use for gap-gap substitutions, set after
+                        matrix transformation, if absent GAP score used
+                        (default: None)
+  --uniform             if present, apply weighting to all sequences,
+                        otherwise sequences weighted by evolutionary distance
+                        (default: False)
+
+consensus parameters:
+  parameters for determining consensus residues (profile-based scores only)
+
+  -c CUTOFF, --cutoff CUTOFF
+                        score cutoff for consensus residues, if absent
+                        consensus not determined (default: None)
+  --propcutoff PROPCUTOFF
+                        proportional score cutoff for consensus residues
+                        consensus may also be this proportion of the highest
+                        scoring residue (default: 1.0)
+
+randomization parameters:
+  parameters for randomizations
+
+  -n NUMRND, --numrnd NUMRND
+                        number of (additional) randomizations, if none no
+                        randomizations performed, must be none if combining
+                        multiple input files (default: 0)
+  --rndsubset RNDSUBSET
+                        subset of sequences to randomize from, selected by
+                        regular expression search for RNDSUBSET, default is
+                        all sequences (default: .*)
+  -i [RNDINFILE [RNDINFILE ...]], --rndinfile [RNDINFILE [RNDINFILE ...]]
+                        randomization input file(s) for reading previously
+                        performed randomizations, if multiple files specified
+                        these will be combined into output file (default:
+                        None)
+  -p RNDOUTFILE, --rndoutfile RNDOUTFILE
+                        randomization output file, required when performing
+                        additional randomizations or combining multiple input
+                        files, must differ from RNDINFILE (default: None)
+
+output parameters:
+  parameters for generating score report
+
+  -o OUTFILE, --outfile OUTFILE
+                        output file to produce, csv format, if not present no
+                        report generated (default: None)
+  -r REFID, --refid REFID
+                        reference sequence for numbering, if absent first
+                        sequence in subset used (default: None)
+  --outsubset OUTSUBSET
+                        subset of sequences to output in report, selected by
+                        regular expression search for OUTSUBSET, if absent
+                        score SUBSET used (default: None)
+  --outpos {PRESENT,ALL,REFERENCE}
+                        positions to output in report, PRESENT for non-gap
+                        postions, ALL for all positions or REFERENCE for
+                        positions in reference sequence only (default:
+                        PRESENT)
+  --simplenum           if present use simple sequential numbering of sequence
+                        positions (1,2,3...), otherwise numbering is by
+                        reference sequence (default: False)
+  --numstart NUMSTART   start sequence numbering at this value (default: 1)
+  --blockoutput         if present output sequences in as a single block of
+                        text, otherwise default to one column per sequence
+                        (default: False)
+  --completeprofile     if present output complete sequence profile, i.e.
+                        profile scores for all positions (default: False)
+  --pfraction           if present output p-values as fractions instead of
+                        proportions (default: False)
+
+See examples for further details.
+
+Usage Details: pymol_calc_accessibility.py
+------------------------------------------
+
+Install script and invoke with the command::
+
+  calc_accessibility_all()
+
+For each object (molecule) in pymol session, the script will determine
+the surface area of each residue in square Angstroms and write these data
+to csv file(s) named ``<objectname>_accessibility.csv`` in the current
+directory.
+
+The surface area for a residue is calculated for all atoms and for 
+side-chain atoms only; side-chain atoms exclude the main-chain carbonyl 
+and amino atoms for all amino acids and exclude the alpha carbon for 
+all amino acids except glycine (i.e. atoms that are not internally named
+N, C, or O for glycine, and atoms that are not named N, C, O or CA for 
+other residues).
+
+The data file(s) contain the following columns:
+* model : pymol object name
+* resi : residue identifier (number)
+* resn : residue name
+* all_acc : surface area of all atoms, square Angstroms
+* sc_acc : surface area of side-chain atoms, square Angstroms
+
+This command has the optional parameters ``dot_solvent`` (defaults to 1) 
+and ``dot_density`` (defaults to 3), 
+
+By default, calculates the solvent accessible surface area (change with 
+the ``dot_solvent`` parameter, 0 will calculate the molecular surface area).
+
+``dot_density`` controls the accuracy of the measurement, defaults 
+to ``3``.
+
+This uses ``Get Area`` in PyMol with ``load_b`` set so this command will 
+alter b-factors of the selection, see documentation for this command 
+for more information.
+
+For simplicity, all solvent, hydrogen and het atoms as well as alternate 
+locations are deleted prior to the calculation.
+
+NB: Script may remove some atoms, change options and alter b-factors in the
+current pymol session.

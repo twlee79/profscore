@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>Sequence analysis of antithrombin orthologues</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7614 2013-02-21 15:55:51Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="sequence-analysis-of-antithrombin-orthologues">
+<h1 class="title">Sequence analysis of antithrombin orthologues</h1>
+
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#general-information" id="id1">General information</a></li>
+<li><a class="reference internal" href="#determining-of-conservation-scores-consensus-residues-and-p-values-for-antithrombin-sequences" id="id2">Determining of conservation scores, consensus residues and <em>p</em>-values for antithrombin sequences</a></li>
+<li><a class="reference internal" href="#determining-of-consensus-residues-of-non-antithrombin-sequences" id="id3">Determining of consensus residues of non-antithrombin sequences</a></li>
+<li><a class="reference internal" href="#generating-a-comparison-of-alpha-1-antitrypsin-numbering-to-antithrombin-numbering" id="id4">Generating a comparison of alpha-1-antitrypsin numbering to antithrombin numbering</a></li>
+<li><a class="reference internal" href="#additional-information" id="id5">Additional information</a></li>
+<li><a class="reference internal" href="#calculation-of-solvent-accessible-surface-area" id="id6">Calculation of solvent-accessible surface area</a></li>
+</ul>
+</div>
+<div class="section" id="general-information">
+<h1><a class="toc-backref" href="#id1">General information</a></h1>
+<p>The input alignment <tt class="docutils literal">all sequences + A1AT.fasta</tt> contains a multiple sequence alignment of 57 sequences: 16 antithrombin, 11 neuroserpin, 11 GDN, 8 pancpin, 10 PAI-1 and human alpha-1-antitrypsin. In the following example, conservation scores and consensus residues are calculated for the 16 antithrombin sequences and compared to the neuroserpin, GDN, pancpin and PAI-1 sequences. Human alpha-1-antitrypsin is used to generate the residue numbering to compare to the results from <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed/11116082">Irving et al., 2000</a> only. The full alignment can be used in all steps as the script provides options to select a subset of sequences when performing analyses.</p>
+<p>By default, the script will calculate profile-based conservation scores using the <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed/11093265">Valdar and Thornton, 2001</a> matrix, which is a transformed PET91 matrix in the range of [0.0-1.0] with a constant diagonal (see also <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed/12112692">Valdar, 2002</a>). Gaps are given the score 0.0.</p>
+<p>Example reports produced as output for each of these steps are provided together with this file. Note that the <em>p</em>-values generated by (re)running the commands here will not be identical to the example files as these are generated by randomization.</p>
+</div>
+<div class="section" id="determining-of-conservation-scores-consensus-residues-and-p-values-for-antithrombin-sequences">
+<h1><a class="toc-backref" href="#id2">Determining of conservation scores, consensus residues and <em>p</em>-values for antithrombin sequences</a></h1>
+<p>Command:</p>
+<blockquote>
+<tt class="docutils literal">profscore.py &quot;all sequences + A1AT.fasta&quot; <span class="pre">-s</span> &quot;ANT3_&quot; <span class="pre">-c</span> 0.7 <span class="pre">--rndsubset</span> &quot;(ANT3|NS|GDN|PP|PAI1)_&quot; <span class="pre">-n</span> 10000 <span class="pre">-p</span> &quot;rand10000_for_ant.csv&quot; <span class="pre">-r</span> ANT3_HUMAN <span class="pre">--numstart</span> <span class="pre">&quot;-32&quot;</span> <span class="pre">--outsubset</span> &quot;(ANT3|NS|GDN|PP|PAI1)_&quot; <span class="pre">-o</span> &quot;profscore_ant.csv&quot;</tt></blockquote>
+<p>Using the full multiple sequence alignment (<tt class="docutils literal">all sequences + A1AT.fasta</tt>), the profile-based conservation score (default) is used to calculate conservation scores for antithrombin sequences (selected with <tt class="docutils literal"><span class="pre">-s</span> &quot;ANT3_&quot;</tt>) with consensus residues determined to be those with consensus scores of ≥ 0.7 in the sequence profile (<tt class="docutils literal"><span class="pre">-c</span> 0.7</tt>). To determine <em>p</em>-values, conservation scores are calculated for a random sample of 16 sequences (the same number as antithrombin sequences selected) from the alignment of antithrombin, neuroserpion, GDN, pancpin and PAI-1 sequences (selected with <tt class="docutils literal"><span class="pre">--rndsubset</span> &quot;(ANT3|NS|GDN|PP|PAI1)_&quot;</tt>) and this is repeated 10,000 times (<tt class="docutils literal"><span class="pre">-n</span> 10000</tt>); at each site, the <em>p</em>-value is calculated as the proportion of randomizations giving conservation scores at least as high as in the antithrombin sequences. Results of the randomizations must be saved to file during processing, and the file <tt class="docutils literal">rand10000_for_ant.csv</tt> (<tt class="docutils literal"><span class="pre">-p</span> &quot;rand10000_for_ant.csv&quot;</tt>) is used for this. To produce a report, human antithrombin is used as the reference sequence for numbering (<tt class="docutils literal"><span class="pre">-r</span> ANT3_HUMAN</tt>) with the first human antithrombin residue numbered -32 (<tt class="docutils literal"><span class="pre">--numstart</span> <span class="pre">&quot;-32&quot;</span></tt>) to give the commonly used numbering scheme for antithrombin (residue 1 is the first residue in the mature protein with the signal peptide negatively numbered). The sequences of antithrombin, neuroserpin, GDN, pancpin and PAI1 (<tt class="docutils literal"><span class="pre">--outsubset</span> &quot;(ANT3|NS|GDN|PP|PAI1)_&quot;</tt>) are added to the report for reference. The output report is saved to the file <tt class="docutils literal">profscore_ant.csv</tt> (<tt class="docutils literal"><span class="pre">-o</span> &quot;profscore_ant.csv&quot;</tt>). This report contains selected sequences, conservation scores, consensus residues and <em>p</em>-values at each site in antithrombin.</p>
+</div>
+<div class="section" id="determining-of-consensus-residues-of-non-antithrombin-sequences">
+<h1><a class="toc-backref" href="#id3">Determining of consensus residues of non-antithrombin sequences</a></h1>
+<p>Command:</p>
+<blockquote>
+<tt class="docutils literal">profscore.py &quot;all sequences + A1AT.fasta&quot; <span class="pre">-s</span> &quot;(NS|GDN|PP|PAI1)_&quot; <span class="pre">-c</span> 0.7 <span class="pre">--outsubset</span> &quot;(ANT3|NS|GDN|PP|PAI1)_&quot; <span class="pre">-r</span> ANT3_HUMAN <span class="pre">--numstart</span> <span class="pre">&quot;-32&quot;</span> <span class="pre">-o</span> &quot;profscore_ns+gdn+pp+pai_antnum.csv&quot;</tt></blockquote>
+<p>Using the full multiple sequence alignment (<tt class="docutils literal">all sequences + A1AT.fasta</tt>), the profile-based conservation score (default) is used to calculate conservation scores for relevant non-antithrombin sequences (selected with <tt class="docutils literal"><span class="pre">-s</span> &quot;(NS|GDN|PP|PAI1)_&quot;</tt>) with consensus residues determined to be those with consensus scores of ≥ 0.7 in the sequence profile (<tt class="docutils literal"><span class="pre">-c</span> 0.7</tt>). A report is produced with antithrombin sequences as well, human antithrombin for numbering (<tt class="docutils literal"><span class="pre">-r</span> ANT3_HUMAN <span class="pre">--numstart</span> <span class="pre">&quot;-32&quot;</span> <span class="pre">--outsubset</span> &quot;(ANT3|NS|GDN|PP|PAI1)_&quot;</tt>) and written to the file <tt class="docutils literal">profscore_ns+gdn+pp+pai_antnum.csv</tt> (<tt class="docutils literal"><span class="pre">-o</span> &quot;profscore_ns+gdn+pp+pai_antnum.csv&quot;</tt>). As this report has the same numbering as the file generated above for antithrombin, the columns from the report that give the consensus residues for non-antithrombin sequences can be copied to the first report and compared with those from antithrombin.</p>
+</div>
+<div class="section" id="generating-a-comparison-of-alpha-1-antitrypsin-numbering-to-antithrombin-numbering">
+<h1><a class="toc-backref" href="#id4">Generating a comparison of alpha-1-antitrypsin numbering to antithrombin numbering</a></h1>
+<p>First:</p>
+<blockquote>
+<tt class="docutils literal">profscore.py &quot;all sequences + A1AT.fasta&quot; <span class="pre">--outpos</span> ALL <span class="pre">-r</span> A1AT_HUMAN <span class="pre">--numstart</span> <span class="pre">&quot;-24&quot;</span> <span class="pre">-o</span> &quot;profscore_all_a1atnum.csv&quot;</tt></blockquote>
+<p>Using the full multiple sequence alignment (<tt class="docutils literal">all sequences + A1AT.fasta</tt>), produce a report with all positions in the alignment (<tt class="docutils literal"><span class="pre">--outpos</span> ALL</tt>), alpha-1-antitrypsin as the reference sequence for numbering (<tt class="docutils literal"><span class="pre">-r</span> A1AT_HUMAN</tt>) and numbering starting from -24 to account for the signal peptide (<tt class="docutils literal"><span class="pre">--numstart</span> <span class="pre">&quot;-24&quot;</span></tt>), writing to the file <tt class="docutils literal">profscore_all_a1atnum.csv</tt> (<tt class="docutils literal"><span class="pre">-o</span> &quot;profscore_all_a1atnum.csv&quot;</tt>). This produces a report with numbering in the &quot;report num&quot; column according to human alpha-1-antitrypsin, with residue 1 starting from the first amino acid in the mature (non-pre) protein, as used in <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed/11116082">Irving et al., 2000</a>.</p>
+<p>Second:</p>
+<blockquote>
+<tt class="docutils literal">profscore.py &quot;all sequences + A1AT.fasta&quot; <span class="pre">--outpos</span> ALL <span class="pre">-r</span> ANT3_HUMAN <span class="pre">--numstart</span> <span class="pre">&quot;-32&quot;</span> <span class="pre">-o</span> &quot;profscore_all_antnum.csv&quot;</tt></blockquote>
+<p>Produce a similar report but with numbering using human antithrombin as the reference sequence for numbering (<tt class="docutils literal"><span class="pre">-r</span> ANT3_HUMAN <span class="pre">--numstart</span> <span class="pre">&quot;-32&quot;</span></tt>). This produces a report with numbering in the &quot;report num&quot; column according to human antithrombin, with residue 1 being the first residue in the antithrombin precursor (including the signal peptide), the same numbering scheme used in previous steps above.</p>
+<p>The &quot;report num&quot; column from the two files can then be compared to show human antithrombin numbering versus alpha-1-antitrypsin numbering.</p>
+</div>
+<div class="section" id="additional-information">
+<h1><a class="toc-backref" href="#id5">Additional information</a></h1>
+<p>As a comparison, the file <tt class="docutils literal">scorecons_ant_antnum.csv</tt> gives the Valdar sequence conservation scores calculated using the <a class="reference external" href="https://www.ebi.ac.uk/thornton-srv/databases/cgi-bin/valdar/scorecons_server.pl"><em>scorecons</em> server</a> (<tt class="docutils literal">valdar01</tt> method, <tt class="docutils literal">modified PET91</tt> matrix, gaps <tt class="docutils literal">0</tt>) with the same numbering as in <tt class="docutils literal">profscore_ant.csv</tt>. These are identical to the profile-based conservation scores calculated with the <tt class="docutils literal">profscore.py</tt> script within the precision of the <em>scorecons</em> output (0.001).</p>
+<p>See the neuroserpin example for information on additional randomization and scoring options.</p>
+</div>
+<div class="section" id="calculation-of-solvent-accessible-surface-area">
+<h1><a class="toc-backref" href="#id6">Calculation of solvent-accessible surface area</a></h1>
+<p>In PyMol, open PDB file <tt class="docutils literal">2ANT</tt> (downloaded from the <a class="reference external" href="http://www.rcsb.org/">PDB</a> database) and use the <tt class="docutils literal">pymol_calc_accessibility.py</tt> script by running these commands (<tt class="docutils literal">&lt;script path&gt;</tt> should be replaced by the path containing the script file on the local file system):</p>
+<pre class="literal-block">
+remove not chain i
+  # delete all except chain i = intact antithrombin
+set_name 2ANT, 2ANT-i
+  # rename object to 2ANT-i to include chain name
+cd &lt;script path&gt;
+  # change directory to script location
+run pymol_calc_accessibility.py
+  # install script
+calc_accessibility_all(dot_solvent = 1, dot_density = 4)
+  # run script
+</pre>
+<p>This will calculate the solvent-accessible surface area for each residue in the object <tt class="docutils literal"><span class="pre">2ANT-i</span></tt> and write these data to the file <tt class="docutils literal"><span class="pre">2ANT-i_accessibility.csv</span></tt> in the current directory (script path if above commands used). The surface area for a residue is calculated for all atoms and for side-chain atoms only; side-chain atoms exclude the main-chain carbonyl and amino atoms for all amino acids and exclude the alpha carbon for all amino acids except glycine. The data file contains the following data columns:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">column</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">model</tt></td>
+<td>pymol object name</td>
+</tr>
+<tr><td><tt class="docutils literal">resi</tt></td>
+<td>residue identifier (number)</td>
+</tr>
+<tr><td><tt class="docutils literal">resn</tt></td>
+<td>residue name</td>
+</tr>
+<tr><td><tt class="docutils literal">sc_acc</tt></td>
+<td>surface area of side-chain atoms in Å²</td>
+</tr>
+<tr><td><tt class="docutils literal">all_acc</tt></td>
+<td>surface area of all atoms in Å²</td>
+</tr>
+</tbody>
+</table>
+<p>The residue numbering of the PDB file is identical to that used in <tt class="docutils literal">profscore_ant.csv</tt> so the solvent-accessible surface area for each residue can be combined with the conservation data.</p>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+Tet Woo Lee 2014-04
+</div>
+</body>
+</html>

@@ -1,0 +1,1593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>profscore: Profile Conservation Scoring documentation &mdash; profscore: Profile Conservation Scoring 1.0.8 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="profscore: Profile Conservation Scoring 1.0.8 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">profscore: Profile Conservation Scoring 1.0.8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="profscore-profile-conservation-scoring-documentation">
+<h1>profscore: Profile Conservation Scoring documentation<a class="headerlink" href="#profscore-profile-conservation-scoring-documentation" title="Permalink to this headline">¶</a></h1>
+<p>By: Tet Woo Lee &lt;tw.lee(at)auckland.ac.nz&gt;</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-profscore"></span><dl class="function">
+<dt id="profscore.createRecordChecksum">
+<tt class="descclassname">profscore.</tt><tt class="descname">createRecordChecksum</tt><big>(</big><em>records</em><big>)</big><a class="reference internal" href="_modules/profscore.html#createRecordChecksum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.createRecordChecksum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generated a crc32 checksum of a list of sequence records.
+Used to uniquely identify a list of sequences.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of records to process</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>32-bit checksum of sequences</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.checkTotalWeight">
+<tt class="descclassname">profscore.</tt><tt class="descname">checkTotalWeight</tt><big>(</big><em>records</em>, <em>weights</em><big>)</big><a class="reference internal" href="_modules/profscore.html#checkTotalWeight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.checkTotalWeight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <tt class="docutils literal"><span class="pre">True</span></tt> if sum of weights adds up to <tt class="docutils literal"><span class="pre">1.0</span></tt>.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to test weights for</dd>
+<dt>weights <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of sequence weights</span></dt>
+<dd>sequences weights to check</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.NamedDict">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">NamedDict</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/profscore.html#NamedDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.NamedDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple subclass of <tt class="docutils literal"><span class="pre">dict</span></tt> that contains a <tt class="docutils literal"><span class="pre">name</span></tt> attributed.</p>
+<dl class="attribute">
+<dt id="profscore.NamedDict.name">
+<tt class="descname">name</tt><a class="headerlink" href="#profscore.NamedDict.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em>, name of this dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.clear">
+<tt class="descname">clear</tt><big>(</big><big>)</big> &rarr; None.  Remove all items from D.<a class="headerlink" href="#profscore.NamedDict.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.copy">
+<tt class="descname">copy</tt><big>(</big><big>)</big> &rarr; a shallow copy of D<a class="headerlink" href="#profscore.NamedDict.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="profscore.NamedDict.fromkeys">
+<em class="property">static </em><tt class="descname">fromkeys</tt><big>(</big><em>S</em><span class="optional">[</span>, <em>v</em><span class="optional">]</span><big>)</big> &rarr; New dict with keys from S and values equal to v.<a class="headerlink" href="#profscore.NamedDict.fromkeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>v defaults to None.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.get">
+<tt class="descname">get</tt><big>(</big><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><big>)</big> &rarr; D[k] if k in D, else d.  d defaults to None.<a class="headerlink" href="#profscore.NamedDict.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.has_key">
+<tt class="descname">has_key</tt><big>(</big><em>k</em><big>)</big> &rarr; True if D has a key k, else False<a class="headerlink" href="#profscore.NamedDict.has_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.items">
+<tt class="descname">items</tt><big>(</big><big>)</big> &rarr; list of D's (key, value) pairs, as 2-tuples<a class="headerlink" href="#profscore.NamedDict.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.iteritems">
+<tt class="descname">iteritems</tt><big>(</big><big>)</big> &rarr; an iterator over the (key, value) items of D<a class="headerlink" href="#profscore.NamedDict.iteritems" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.iterkeys">
+<tt class="descname">iterkeys</tt><big>(</big><big>)</big> &rarr; an iterator over the keys of D<a class="headerlink" href="#profscore.NamedDict.iterkeys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.itervalues">
+<tt class="descname">itervalues</tt><big>(</big><big>)</big> &rarr; an iterator over the values of D<a class="headerlink" href="#profscore.NamedDict.itervalues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.keys">
+<tt class="descname">keys</tt><big>(</big><big>)</big> &rarr; list of D's keys<a class="headerlink" href="#profscore.NamedDict.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.pop">
+<tt class="descname">pop</tt><big>(</big><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><big>)</big> &rarr; v, remove specified key and return the corresponding value.<a class="headerlink" href="#profscore.NamedDict.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>If key is not found, d is returned if given, otherwise KeyError is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.popitem">
+<tt class="descname">popitem</tt><big>(</big><big>)</big> &rarr; (k, v), remove and return some (key, value) pair as a<a class="headerlink" href="#profscore.NamedDict.popitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>2-tuple; but raise KeyError if D is empty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.setdefault">
+<tt class="descname">setdefault</tt><big>(</big><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><big>)</big> &rarr; D.get(k,d), also set D[k]=d if k not in D<a class="headerlink" href="#profscore.NamedDict.setdefault" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.update">
+<tt class="descname">update</tt><big>(</big><span class="optional">[</span><em>E</em>, <span class="optional">]</span><em>**F</em><big>)</big> &rarr; None.  Update D from dict/iterable E and F.<a class="headerlink" href="#profscore.NamedDict.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>If E present and has a .keys() method, does:     for k in E: D[k] = E[k]
+If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
+In either case, this is followed by: for k in F: D[k] = F[k]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.values">
+<tt class="descname">values</tt><big>(</big><big>)</big> &rarr; list of D's values<a class="headerlink" href="#profscore.NamedDict.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.viewitems">
+<tt class="descname">viewitems</tt><big>(</big><big>)</big> &rarr; a set-like object providing a view on D's items<a class="headerlink" href="#profscore.NamedDict.viewitems" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.viewkeys">
+<tt class="descname">viewkeys</tt><big>(</big><big>)</big> &rarr; a set-like object providing a view on D's keys<a class="headerlink" href="#profscore.NamedDict.viewkeys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.NamedDict.viewvalues">
+<tt class="descname">viewvalues</tt><big>(</big><big>)</big> &rarr; an object providing a view on D's values<a class="headerlink" href="#profscore.NamedDict.viewvalues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.printRecordNames">
+<tt class="descclassname">profscore.</tt><tt class="descname">printRecordNames</tt><big>(</big><em>records</em><big>)</big><a class="reference internal" href="_modules/profscore.html#printRecordNames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.printRecordNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple function to print record ids.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of records to print record ids</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.isProfileScore">
+<tt class="descclassname">profscore.</tt><tt class="descname">isProfileScore</tt><big>(</big><em>scoreType</em><big>)</big><a class="reference internal" href="_modules/profscore.html#isProfileScore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.isProfileScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <tt class="docutils literal"><span class="pre">True</span></tt> if <tt class="docutils literal"><span class="pre">scoretype</span></tt> is a profile-based score.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.subsetByID">
+<tt class="descclassname">profscore.</tt><tt class="descname">subsetByID</tt><big>(</big><em>records</em>, <em>nameREstr</em><big>)</big><a class="reference internal" href="_modules/profscore.html#subsetByID"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.subsetByID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a subset of sequences by regular expression search.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>nameREstr <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>regular expression to use to subset sequences, sequences must contain this regular expression</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of sequences containing the regex</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.enum">
+<tt class="descclassname">profscore.</tt><tt class="descname">enum</tt><big>(</big><em>*sequential</em>, <em>**named</em><big>)</big><a class="reference internal" href="_modules/profscore.html#enum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.enum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple method to create enum-like objects.</p>
+<p>Usage: <tt class="docutils literal"><span class="pre">enum('APPLE','ORANGE','PEAR')</span></tt></p>
+<p>Source: Alec Thomas, stack overflow <a class="reference external" href="http://stackoverflow.com/questions/36932/how-can-i-represent-an-enum-in-python">http://stackoverflow.com/questions/36932/how-can-i-represent-an-enum-in-python</a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.Dummy">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">Dummy</tt><a class="reference internal" href="_modules/profscore.html#Dummy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.Dummy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dummy object class for storing data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.ScoreType">
+<tt class="descclassname">profscore.</tt><tt class="descname">ScoreType</tt><a class="headerlink" href="#profscore.ScoreType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple enum-like class for specifying score type.</p>
+<p>Possible values:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">VALDAR</span></tt></dt>
+<dd>Valdar score</dd>
+<dt><tt class="docutils literal"><span class="pre">PROFILE</span></tt></dt>
+<dd>Profile-based score, corrected for self-comparisons</dd>
+<dt><tt class="docutils literal"><span class="pre">PROFILE_UNCORR</span></tt></dt>
+<dd>Profile-based score, not corrected for self-comparisons</dd>
+</dl>
+</div></blockquote>
+<p>alias of <tt class="xref py py-class docutils literal"><span class="pre">Enum</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.FilePosition">
+<tt class="descclassname">profscore.</tt><tt class="descname">FilePosition</tt><a class="headerlink" href="#profscore.FilePosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple enum-like class for specifying file position when reading randomization file.</p>
+<p>Possible values:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">START</span></tt></dt>
+<dd>Initial state, before reading magic start word</dd>
+<dt><tt class="docutils literal"><span class="pre">HEADER</span></tt></dt>
+<dd>Reading header with parameterrs</dd>
+<dt><tt class="docutils literal"><span class="pre">DATA</span></tt></dt>
+<dd>Reading data site by site</dd>
+<dt><tt class="docutils literal"><span class="pre">END</span></tt></dt>
+<dd>After reading magic end word</dd>
+</dl>
+</div></blockquote>
+<p>alias of <tt class="xref py py-class docutils literal"><span class="pre">Enum</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.OutputPositions">
+<tt class="descclassname">profscore.</tt><tt class="descname">OutputPositions</tt><a class="headerlink" href="#profscore.OutputPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple enum-like class for specifying output positions when reading reports.</p>
+<p>Possible values:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">ALL</span></tt></dt>
+<dd>output all positions in alignment</dd>
+<dt><tt class="docutils literal"><span class="pre">PRESENT</span></tt></dt>
+<dd>output only present positions in subset</dd>
+<dt><tt class="docutils literal"><span class="pre">REFERENCE</span></tt></dt>
+<dd>output only positions present in reference sequence</dd>
+</dl>
+</div></blockquote>
+<p>alias of <tt class="xref py py-class docutils literal"><span class="pre">Enum</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.readSubsMat">
+<tt class="descclassname">profscore.</tt><tt class="descname">readSubsMat</tt><big>(</big><em>filename</em><big>)</big><a class="reference internal" href="_modules/profscore.html#readSubsMat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.readSubsMat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a substitution matrix from file in aaindex2 format.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>filename <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>path to the file to read, file should be in aaindex2 format</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SubsMat.SeqMat object</span></dt>
+<dd>substitution matrix read from file</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.linearTransform">
+<tt class="descclassname">profscore.</tt><tt class="descname">linearTransform</tt><big>(</big><em>subsMat</em>, <em>diagonal=None</em>, <em>gap=0.0</em>, <em>gapgap=None</em><big>)</big><a class="reference internal" href="_modules/profscore.html#linearTransform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.linearTransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear transform a substitution matrix, so that min is 0.0 and max is 1.0.
+Note that the matrix is transformed in place.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>subsMat <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SubsMat.SeqMat object</span></dt>
+<dd>the substitution matrix to transform</dd>
+<dt>diagonal <span class="classifier-delimiter">:</span> <span class="classifier">number, optional</span></dt>
+<dd>value given to diagonal elements in matrix, if <tt class="docutils literal"><span class="pre">None</span></tt> (default) diagonal to set to &#8220;rounded average of diagonal elements in the unmodified matrix&#8221; (Valdar 2002),
+applied before transformation</dd>
+<dt>gap <span class="classifier-delimiter">:</span> <span class="classifier">number, optional</span></dt>
+<dd>score given to aa -&gt; gap substitutions, defaults to <tt class="docutils literal"><span class="pre">0.0</span></tt>, applied after transformation</dd>
+<dt>gapgap <span class="classifier-delimiter">:</span> <span class="classifier">number, optional</span></dt>
+<dd>score for gap -&gt; gap substitutions, if <tt class="docutils literal"><span class="pre">None</span></tt>, same as gap score, applied after transformation</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SubsMat.SeqMat object</span></dt>
+<dd>Transformed substitution matrix.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.VectorSubsMat">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">VectorSubsMat</tt><big>(</big><em>subsMat</em><big>)</big><a class="reference internal" href="_modules/profscore.html#VectorSubsMat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.VectorSubsMat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a substitution matrix in vector form from a (standard) substitution matrix.
+If <tt class="docutils literal"><span class="pre">vectorSubsMat</span></tt> is an instance of this class, then each lookup of <tt class="docutils literal"><span class="pre">vectorSubsMat[aa1]</span></tt>
+(where <tt class="docutils literal"><span class="pre">aa1</span></tt> is amino acid in upper case one letter code)
+provides a <em>k</em>-dimensional vector giving scores for all possible substitutions.</p>
+<p>If <tt class="docutils literal"><span class="pre">vector</span> <span class="pre">=</span> <span class="pre">vectorSubsMat[aa1]</span></tt>, a particular substitution score get be found by
+<tt class="docutils literal"><span class="pre">vector[index]</span></tt> where <tt class="docutils literal"><span class="pre">index</span></tt> is  the index of a (second) aa.
+The index of an aa given by <tt class="docutils literal"><span class="pre">vectorSubsMat.alphabetLUT[ord(aa2)]</span></tt>.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>subsMat <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SubsMat.SeqMat object</span></dt>
+<dd>the substitution matrix to convert</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="profscore.VectorSubsMat.mat_name">
+<tt class="descname">mat_name</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.VectorSubsMat.mat_name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em>, name of this substitution matrix</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.VectorSubsMat.alphabet">
+<tt class="descname">alphabet</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.VectorSubsMat.alphabet" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Bio.Alphabet.Alphabet object</em>, alphabet of this substitution matrix</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.VectorSubsMat.subsMat">
+<tt class="descname">subsMat</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.VectorSubsMat.subsMat" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Bio.SubsMat.SeqMat object</em>, source substitution matrix</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.VectorSubsMat.scoreLUT">
+<tt class="descname">scoreLUT</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.VectorSubsMat.scoreLUT" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em>, look-up table mapping amino acid letters to vectors, access by indexing <tt class="docutils literal"><span class="pre">VectorSubsMat</span></tt> object, i.e. <tt class="docutils literal"><span class="pre">vectorSubsMat[aa]</span> <span class="pre">=</span> <span class="pre">scoreVector</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.VectorSubsMat.alphabetLUT">
+<tt class="descname">alphabetLUT</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.VectorSubsMat.alphabetLUT" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list</em>, look-up table of amino acid letters to substitution vector indexes.</p>
+<dl class="docutils">
+<dt>Usage:</dt>
+<dd><tt class="docutils literal"><span class="pre">alphabetLUT[ord(aa)]</span></tt> where <tt class="docutils literal"><span class="pre">aa</span></tt> is the amino acid
+in upper-case one letter code e.g. <tt class="docutils literal"><span class="pre">A</span></tt>, <tt class="docutils literal"><span class="pre">Y</span></tt>, <tt class="docutils literal"><span class="pre">M</span></tt> etc.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.VectorSubsMat.dimensions">
+<tt class="descname">dimensions</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.VectorSubsMat.dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, number of dimensions in vector (i.e. aa characters)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.evolDistance">
+<tt class="descclassname">profscore.</tt><tt class="descname">evolDistance</tt><big>(</big><em>recordI</em>, <em>recordJ</em>, <em>subsMat</em><big>)</big><a class="reference internal" href="_modules/profscore.html#evolDistance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.evolDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the evolutionary distance between two aligned sequence records given a substitution matrix.
+As per Valdar, 2001 PMID: 11093265</p>
+<div class="math">
+<p><img src="_images/math/f767cfbf84c4648b230264848dce307b467583c1.png" alt="D(s_i,s_j) = 1 - \frac{\displaystyle\sum_{x \in aligned_{ij}}M\Big (s_{i}(x),s_{j}(x)\Big )}{\displaystyle n(aligned_{ij})}"/></p>
+</div><p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>recordI <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SeqRecord object</span></dt>
+<dd>first sequence</dd>
+<dt>recordJ <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SeqRecord object</span></dt>
+<dd>second sequence</dd>
+<dt>subsMat <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SubsMat.SeqMat object</span></dt>
+<dd>substitution matrix, transformed</dd>
+</dl>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>evolutionary distance</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.createUniformDistanceMatrix">
+<tt class="descclassname">profscore.</tt><tt class="descname">createUniformDistanceMatrix</tt><big>(</big><em>records</em>, <em>uniformDistance=1.0</em><big>)</big><a class="reference internal" href="_modules/profscore.html#createUniformDistanceMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.createUniformDistanceMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a simple distance matrix with a uniform value for pairs of aligned sequences.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences (only size of list is used by this function)</dd>
+<dt>uniformDistance <span class="classifier-delimiter">:</span> <span class="classifier">number, optional</span></dt>
+<dd>the value to use as the uniform distance between each pair of sequences, defaults to <tt class="docutils literal"><span class="pre">1.0</span></tt></dd>
+</dl>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict</span></dt>
+<dd>A dict of giving uniform distance for each pair of records <em>ij</em> i.e <tt class="docutils literal"><span class="pre">out[recordI,</span> <span class="pre">recordJ]</span> <span class="pre">=</span> <span class="pre">uniformDistance</span></tt>.
+Value of <tt class="docutils literal"><span class="pre">out[recordI,</span> <span class="pre">recordI]</span></tt> is undefined.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.calculateDistanceMatrix">
+<tt class="descclassname">profscore.</tt><tt class="descname">calculateDistanceMatrix</tt><big>(</big><em>records</em>, <em>subsMat</em><big>)</big><a class="reference internal" href="_modules/profscore.html#calculateDistanceMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.calculateDistanceMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a matrix of evolutionary distances between pairs of aligned sequences given a substitution matrix.
+Distance calculations as per Valdar, 2001 PMID: 11093265</p>
+<div class="math">
+<p><img src="_images/math/f767cfbf84c4648b230264848dce307b467583c1.png" alt="D(s_i,s_j) = 1 - \frac{\displaystyle\sum_{x \in aligned_{ij}}M\Big (s_{i}(x),s_{j}(x)\Big )}{\displaystyle n(aligned_{ij})}"/></p>
+</div><p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>subsMat <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SubsMat.SeqMat object</span></dt>
+<dd>substitution matrix, transformed</dd>
+</dl>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict</span></dt>
+<dd>A dict giving evolutionary distance for each pair of records ij i.e <tt class="docutils literal"><span class="pre">out[recordI,</span> <span class="pre">recordJ]</span> <span class="pre">=</span> <span class="pre">distance(recordI,</span> <span class="pre">recordJ)</span></tt>.
+Matrix is symmetrical and <tt class="docutils literal"><span class="pre">out[recordI,</span> <span class="pre">recordI]</span></tt> is undefined.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.calculateWeights">
+<tt class="descclassname">profscore.</tt><tt class="descname">calculateWeights</tt><big>(</big><em>records</em>, <em>distanceMatrix</em>, <em>silent=False</em><big>)</big><a class="reference internal" href="_modules/profscore.html#calculateWeights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.calculateWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate weight of each sequence <em>|s_i|</em> as mean evolutionary distance between <em>|s_i|</em> and all other sequences in the alignment.
+As per Valdar, 2001 PMID: 11093265</p>
+<div class="math">
+<p><img src="_images/math/b484e42f289983ef96a47f2a8a416991f6118b28.png" alt="w_i = \frac{\displaystyle\sum_{j\neq i}^{N}D(s_i,s_j)}{\displaystyle N-1}"/></p>
+</div><p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>distanceMatrix <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of evolutionary distances</span></dt>
+<dd>pre-calculated distance matrix giving pairwise distances between all records to process</dd>
+<dt>silent <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> do not produce any output (used when called by randomization functions), defaults to <tt class="docutils literal"><span class="pre">False</span></tt></dd>
+</dl>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict</span></dt>
+<dd>A dict of giving weight for each sequence record, i.e. <tt class="docutils literal"><span class="pre">out[recordI]</span> <span class="pre">=</span> <span class="pre">weightI</span></tt></dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.ConservationScores">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">ConservationScores</tt><big>(</big><em>records</em>, <em>scoreName</em>, <em>weightBy</em>, <em>scoreAgainst</em><big>)</big><a class="reference internal" href="_modules/profscore.html#ConservationScores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.ConservationScores" title="Permalink to this definition">¶</a></dt>
+<dd><p>A data storage class to store calculated sequence conservations scores.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>scoreName <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>name of this scoring system, added to <tt class="docutils literal"><span class="pre">self.metadata</span></tt></dd>
+<dt>scoreAgainst <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>details of scoring (e.g. scoring against what matrix/profile), added to <tt class="docutils literal"><span class="pre">self.metadata</span></tt></dd>
+<dt>weightBy: string</dt>
+<dd>details of weighting, added to <tt class="docutils literal"><span class="pre">self.metadata</span></tt></dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="profscore.ConservationScores.records">
+<tt class="descname">records</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.ConservationScores.records" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of Bio.SeqRecord objects</em>, list of records provided to this score object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.ConservationScores.M">
+<tt class="descname">M</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.ConservationScores.M" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, alignment length, i.e. total number of sites in alignment</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.ConservationScores.scores">
+<tt class="descname">scores</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.ConservationScores.scores" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of numbers</em>, list of scores indexed by 0-based site number in alignment, <tt class="docutils literal"><span class="pre">None</span></tt> until scores calculated</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.ConservationScores.metadata">
+<tt class="descname">metadata</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.ConservationScores.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>OrderedDict</em>, metadata for this profile</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.ConservationScores.allocateScores">
+<tt class="descname">allocateScores</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/profscore.html#ConservationScores.allocateScores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.ConservationScores.allocateScores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate an array of length <tt class="docutils literal"><span class="pre">self.M</span></tt> for storing scores, with all values initially set to <tt class="docutils literal"><span class="pre">nan</span></tt>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.ValdarScore">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">ValdarScore</tt><big>(</big><em>records</em>, <em>subsMat</em>, <em>distanceMatrix=None</em>, <em>weights=None</em><big>)</big><a class="reference internal" href="_modules/profscore.html#ValdarScore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.ValdarScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Valdar conservation score for all sites in an alignment, given a list of sequence
+records, a substitution matrix and a distance matrix or list of sequence weights.
+As per Valdar, 2001 PMID: 11093265</p>
+<p>Scores are automatically calculated when the class in constructed. Once constructed,
+this class will contain list of Valdar scores for each site in the alignment in <tt class="docutils literal"><span class="pre">self.scores</span></tt>.</p>
+<p>Inherits from <tt class="docutils literal"><span class="pre">ConservationScores</span></tt>.</p>
+<p>Valdar score:</p>
+<div class="math">
+<p><img src="_images/math/e731fd89467a620b1ef7c6b0dff80cdb4770f0c2.png" alt="V_x = \frac{\displaystyle \sum_{i}^{N}\sum_{j&gt;i}^{N}w_i w_j M\Big (s_{ix},s_{jx}\Big ) } {\displaystyle \sum_{i}^{N}\sum_{j&gt;i}^{N}w_i w_j }"/></p>
+</div><p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>subsMat <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SubsMat.SeqMat object</span></dt>
+<dd>substitution matrix, transformed</dd>
+<dt>distanceMatrix <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of evolutionary distances, optional, may be <tt class="docutils literal"><span class="pre">None</span></tt></span></dt>
+<dd>pre-calculated distance matrix giving pairwise distances between all records (if not provided, calculated automatically; not used if weights provided)</dd>
+<dt>weights <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of sequence weights, optional, may be <tt class="docutils literal"><span class="pre">None</span></tt></span></dt>
+<dd>pre-calculated weights of all sequences (if not provided, calculated automatically from evolutionary distances)</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="profscore.ValdarScore.subsMat">
+<tt class="descname">subsMat</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.ValdarScore.subsMat" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Bio.SubsMat.SeqMat object</em>, substitution matrix used to calculated scores</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.ValdarScore.weights">
+<tt class="descname">weights</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.ValdarScore.weights" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>NamedDict of sequence weights</em>, weights of sequences used to calculated scores</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="profscore.ValdarScore.valdarBySite">
+<em class="property">static </em><tt class="descname">valdarBySite</tt><big>(</big><em>site</em>, <em>records</em>, <em>subsMat</em>, <em>weights</em>, <em>silent=False</em><big>)</big><a class="reference internal" href="_modules/profscore.html#ValdarScore.valdarBySite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.ValdarScore.valdarBySite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Valdar conservation score for a given site in an alignment, given a list of sequence
+records, a substitution matrix, a site number and a distance matrix or list of sequence weights.
+Static function allows it to be called without creating a <tt class="docutils literal"><span class="pre">ValdarScore</span></tt> object.
+As per Valdar, 2001 PMID: 11093265</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>site <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>site in alignment to calculate score for (note 0-based index)</dd>
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>subsMat <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SubsMat.SeqMat object</span></dt>
+<dd>substitution matrix, transformed</dd>
+<dt>weights <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of sequence weights</span></dt>
+<dd>pre-calculated weights of all sequences</dd>
+<dt>silent <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> do not produce any output (used when called by randomization functions), defaults to <tt class="docutils literal"><span class="pre">False</span></tt></dd>
+</dl>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>Valdar score for the site.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.ValdarScore.allocateScores">
+<tt class="descname">allocateScores</tt><big>(</big><big>)</big><a class="headerlink" href="#profscore.ValdarScore.allocateScores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate an array of length <tt class="docutils literal"><span class="pre">self.M</span></tt> for storing scores, with all values initially set to <tt class="docutils literal"><span class="pre">nan</span></tt>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.AAScore">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">AAScore</tt><big>(</big><em>letter</em>, <em>score</em>, <em>pMax</em><big>)</big><a class="reference internal" href="_modules/profscore.html#AAScore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.AAScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple data storage class to store and order AA scores for finding consensus.
+Sorting <tt class="docutils literal"><span class="pre">AAScore</span></tt> objects results in ordering by score.</p>
+<dl class="attribute">
+<dt id="profscore.AAScore.letter">
+<tt class="descname">letter</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AAScore.letter" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>character</em>, letter for this aa</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AAScore.score">
+<tt class="descname">score</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AAScore.score" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, absolute score for this aa</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AAScore.pMax">
+<tt class="descname">pMax</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AAScore.pMax" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, score for this aa as a proportion of the max score at the site</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.SequenceProfile">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">SequenceProfile</tt><big>(</big><em>records</em>, <em>vectorSubsMat</em>, <em>distanceMatrix=None</em>, <em>profileWeights=None</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SequenceProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SequenceProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a SequenceProfile from set of alignment records.
+The sequence profile is the weighted average vector of amino acid scores for that position.</p>
+<p>The profile-based scoring system score breaks Valdar score into two parts, sequence profile generation (<tt class="docutils literal"><span class="pre">SequenceProfile</span></tt>) and profile scoring (<tt class="docutils literal"><span class="pre">ProfileScore</span></tt>).</p>
+<p>Profile automatically calculated when the class in constructed. Once constructed,
+this class will contain list (for each site in the alignment) of profile vectors as <tt class="docutils literal"><span class="pre">self.profile</span></tt>.</p>
+<p>Sequence profile:</p>
+<div class="math">
+<p><img src="_images/math/8a56569646a5177a17a6f06a8c90012f9fbacacc.png" alt="\bar{P}_x = \frac{\displaystyle \sum_{i}^{N}w_iP_{ix}}{\displaystyle \sum_{i}^{N}w_i}"/></p>
+</div><p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>vectorSubsMat <span class="classifier-delimiter">:</span> <span class="classifier">VectorSubsMat object</span></dt>
+<dd>substitution matrix, transformed and converted to vector form</dd>
+<dt>distanceMatrix <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of evolutionary distances, optional, may be <tt class="docutils literal"><span class="pre">None</span></tt></span></dt>
+<dd>pre-calculated distance matrix giving pairwise distances between all records (if not provided, calculated automatically; not used if profileWeights provided)</dd>
+<dt>profileWeights <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of sequence weights, optional, may be <tt class="docutils literal"><span class="pre">None</span></tt></span></dt>
+<dd>pre-calculated weights of all sequences used for weighting profile (if not provided, calculated automatically from evolutionary distances),
+weights for sequences used should sum to 1.0</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="profscore.SequenceProfile.records">
+<tt class="descname">records</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.SequenceProfile.records" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of Bio.SeqRecord objects</em>, list of records used to generate profile</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.SequenceProfile.vectorSubsMat">
+<tt class="descname">vectorSubsMat</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.SequenceProfile.vectorSubsMat" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>VectorSubsMat object</em>, vector substitution matrix used to generate profile</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.SequenceProfile.profileWeights">
+<tt class="descname">profileWeights</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.SequenceProfile.profileWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>NamedDict of sequence weights</em>, weights of sequences</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.SequenceProfile.M">
+<tt class="descname">M</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.SequenceProfile.M" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, alignment length, i.e. total number of sites in alignment</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.SequenceProfile.consensus">
+<tt class="descname">consensus</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.SequenceProfile.consensus" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list (for each site) of list (for multiple consensus residues) of AAScore objects</em>, <tt class="docutils literal"><span class="pre">None</span></tt> prior to call of <tt class="docutils literal"><span class="pre">findConsensus()</span></tt>;
+stores consensus residues, as <tt class="docutils literal"><span class="pre">AAScore</span></tt> objects for each site, i.e. <tt class="docutils literal"><span class="pre">self.consensus[site]</span></tt> gives list of <tt class="docutils literal"><span class="pre">AAScore</span></tt> objects as consensus residues for the site</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.SequenceProfile.consensusDetails">
+<tt class="descname">consensusDetails</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.SequenceProfile.consensusDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em>, <tt class="docutils literal"><span class="pre">None</span></tt> prior to call of <tt class="docutils literal"><span class="pre">findConsensus()</span></tt>;  details of how consensus determined, i.e. string giving cutoff values</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.SequenceProfile.profile">
+<tt class="descname">profile</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.SequenceProfile.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of numpy.array</em>, list of vectors for the profile, indexed by 0-based site number in alignment</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.SequenceProfile.metadata">
+<tt class="descname">metadata</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.SequenceProfile.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>OrderedDict</em>, metadata for this profile</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="profscore.SequenceProfile.generateProfileAtSite">
+<em class="property">static </em><tt class="descname">generateProfileAtSite</tt><big>(</big><em>site</em>, <em>records</em>, <em>vectorSubsMat</em>, <em>profileWeights</em>, <em>silent=False</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SequenceProfile.generateProfileAtSite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SequenceProfile.generateProfileAtSite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the sequence profile at a site in the alignment.
+The sequence profile is the weighted average vector of amino acid scores for that position.
+Static function allows it to be called without creating a <tt class="docutils literal"><span class="pre">SequenceProfile</span></tt> object.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>site <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>position in the alignment to calculate profile (note: 0-based)</dd>
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>vectorSubsMat <span class="classifier-delimiter">:</span> <span class="classifier">VectorSubsMat object</span></dt>
+<dd>substitution matrix, transformed and converted to vector form</dd>
+<dt>profileWeights <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of sequence weights</span></dt>
+<dd>pre-calculated weights of all sequences used for weighting profile (weights for sequences used assumed to sum to 1.0)</dd>
+<dt>silent <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> do not produce any output (used when called by randomization functions), defaults to <tt class="docutils literal"><span class="pre">False</span></tt></dd>
+</dl>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">numpy.array</span></dt>
+<dd>a vector giving the sequence profile at requested site</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.SequenceProfile.findConsensus">
+<tt class="descname">findConsensus</tt><big>(</big><em>cutoffAbs</em>, <em>cutoffProportion=1.0</em>, <em>excludeGap=True</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SequenceProfile.findConsensus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SequenceProfile.findConsensus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find consensus residues for each position in profile.
+For a residue to be a consensus residue at a site, it must be represented at that site in the alignment
+and must have a score at least equal to the cutoffs.
+Result is stored in attribute <tt class="docutils literal"><span class="pre">self.consensus</span></tt>, with criteria given in <tt class="docutils literal"><span class="pre">self.consensusDetails</span></tt>.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>cutoffAbs <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>absolute cutoff, residues must have absolutes scores &gt;= this to be considered a consensus residue</dd>
+<dt>cutoffProportion <span class="classifier-delimiter">:</span> <span class="classifier">number, optional</span></dt>
+<dd>proportional cutoff, residues must have scores &gt;= this proportion of the max score to be considered a consensus residue</dd>
+<dt>excludeGap <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> (default) prevents gaps from being considered consensus residues</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.ProfileScore">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">ProfileScore</tt><big>(</big><em>records</em>, <em>sequenceProfile</em>, <em>distanceMatrix=None</em>, <em>scoringWeights=None</em>, <em>correctForSelfComparisons=True</em><big>)</big><a class="reference internal" href="_modules/profscore.html#ProfileScore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.ProfileScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate sequence profile-based conservation scores for a set of alignment records given a sequence profile.</p>
+<p>The profile-based scoring system score breaks Valdar score into two parts, sequence profile generation (<tt class="docutils literal"><span class="pre">SequenceProfile</span></tt>) and profile scoring (<tt class="docutils literal"><span class="pre">ProfileScore</span></tt>).
+The score will be identical to the Valdar score if corrected for self-comparisons. This code does not assume that the sequence profile and profile scoring are
+generated from the same set of sequences, although it has not been tested or validated when different sets of sequences are used for each step.</p>
+<p>Scores are automatically calculated when the class in constructed. Once constructed,
+this class will contain list of conservation scores for each site in the alignment in <tt class="docutils literal"><span class="pre">self.scores</span></tt>.</p>
+<p>Inherits from <tt class="docutils literal"><span class="pre">ConservationScores</span></tt>.</p>
+<p>Uncorrected score:</p>
+<div class="math">
+<p><img src="_images/math/4f457bbd56d4e9302aff1d0d284413d47b821025.png" alt="\widetilde{C_x} = \frac{\displaystyle \sum_{i}^{N}w_i\bar{P}_{x}(s_{ix})}{\displaystyle \sum_{i}^{N}w_i}"/></p>
+</div><p>Corrected score:</p>
+<div class="math">
+<p><img src="_images/math/b5c0bfbe5c51fada96e01614bbf3979c09620e9f.png" alt="C_x = \frac{\displaystyle \sum_{i}^{N}w_i\bar{P}_{x}(s_{ix}) -   \displaystyle \sum_{i}^{N}w_i w_i M\Big (s_{ix},s_{ix}\Big ) } {\displaystyle \sum_{i}^{N}w_i - \displaystyle \sum_{i}^{N}w_i w_i }"/></p>
+</div><p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>sequenceProfile <span class="classifier-delimiter">:</span> <span class="classifier">SequenceProfile object</span></dt>
+<dd>calculated sequence profile</dd>
+<dt>distanceMatrix <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of evolutionary distances, optional, may be <tt class="docutils literal"><span class="pre">None</span></tt></span></dt>
+<dd>pre-calculated distance matrix giving pairwise distances between all records (if not provided, calculated automatically; not used if weights provided)</dd>
+<dt>scoringWeights <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of sequence weights, optional, may be <tt class="docutils literal"><span class="pre">None</span></tt></span></dt>
+<dd>pre-calculated weights of sequences to be used for weighting the score (if not provided, calculated automatically from evolutionary distances),
+weights for sequences used should sum to 1.0</dd>
+<dt>correctForSelfComparisons <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>defaults to <tt class="docutils literal"><span class="pre">True</span></tt>, if <tt class="docutils literal"><span class="pre">True</span></tt>, score is corrected for self-comparisons</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="profscore.ProfileScore.sequenceProfile">
+<tt class="descname">sequenceProfile</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.ProfileScore.sequenceProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>SequenceProfile object</em>, sequenceProfile used to calculate scores</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.ProfileScore.scoringWeights">
+<tt class="descname">scoringWeights</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.ProfileScore.scoringWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>NamedDict of sequence weights</em>, weights of sequences</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="profscore.ProfileScore.scoreAgainstProfileBySite">
+<em class="property">static </em><tt class="descname">scoreAgainstProfileBySite</tt><big>(</big><em>site</em>, <em>records</em>, <em>profileAtSite</em>, <em>vectorSubsMat</em>, <em>scoringWeights</em>, <em>profileWeights=None</em>, <em>correctForSelfComparisons=True</em>, <em>silent=False</em><big>)</big><a class="reference internal" href="_modules/profscore.html#ProfileScore.scoreAgainstProfileBySite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.ProfileScore.scoreAgainstProfileBySite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate conservation score at a site in the alignment.
+The score is based on comparison to <tt class="docutils literal"><span class="pre">sequenceProfile</span></tt>.
+Static function allows it to be called without creating a <tt class="docutils literal"><span class="pre">ProfileScore</span></tt> object.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>site <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>position in the alignment to calculate profile (note: 0-based)</dd>
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>profileAtSite <span class="classifier-delimiter">:</span> <span class="classifier">k-dimensional numpy array</span></dt>
+<dd>sequence profile at the site i.e weighted average vector of amino acid scores at site</dd>
+<dt>vectorSubsMat <span class="classifier-delimiter">:</span> <span class="classifier">VectorSubsMat object</span></dt>
+<dd>substitution matrix, transformed and converted to vector form; used for self-comparison correction</dd>
+<dt>scoringWeights <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of sequence weights</span></dt>
+<dd>pre-calculated weights of sequences to be used for weighting the score, weights for sequences used assumed to sum to 1.0</dd>
+<dt>profileWeights <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of sequence weights, optional</span></dt>
+<dd>pre-calculated weights of sequences to be used for weighting the profile; if absent assumed to be the same as sequence weights</dd>
+<dt>correctForSelfComparisons <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>defaults to <tt class="docutils literal"><span class="pre">True</span></tt>, if <tt class="docutils literal"><span class="pre">True</span></tt>, score is corrected for self-comparisons</dd>
+<dt>silent <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> do not produce any output (used when called by randomization functions), defaults to <tt class="docutils literal"><span class="pre">False</span></tt></dd>
+</dl>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>conservation score for this site</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.ProfileScore.allocateScores">
+<tt class="descname">allocateScores</tt><big>(</big><big>)</big><a class="headerlink" href="#profscore.ProfileScore.allocateScores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate an array of length <tt class="docutils literal"><span class="pre">self.M</span></tt> for storing scores, with all values initially set to <tt class="docutils literal"><span class="pre">nan</span></tt>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.randomSampleReplacement">
+<tt class="descclassname">profscore.</tt><tt class="descname">randomSampleReplacement</tt><big>(</big><em>records</em>, <em>number</em><big>)</big><a class="reference internal" href="_modules/profscore.html#randomSampleReplacement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.randomSampleReplacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sample of sequences by sampling with replacement.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>number <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>number of sequences to sample</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>random sample of sequences</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.randomSampleNoReplacement">
+<tt class="descclassname">profscore.</tt><tt class="descname">randomSampleNoReplacement</tt><big>(</big><em>records</em>, <em>number</em><big>)</big><a class="reference internal" href="_modules/profscore.html#randomSampleNoReplacement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.randomSampleNoReplacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sample of sequences by sampling without replacement.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>number <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>number of sequences to sample</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>random sample of sequences</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.AlignmentPDF">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">AlignmentPDF</tt><big>(</big><em>records</em>, <em>sampleSize</em>, <em>scoreType</em>, <em>subsMat</em>, <em>distanceMatrix=None</em><big>)</big><a class="reference internal" href="_modules/profscore.html#AlignmentPDF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.AlignmentPDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>A conservation score probability distribution for the alignment. Generated by repeatedly randomly
+sampling a certain number of sequences from a larger set of sequences (without replacement).</p>
+<p>When constructed, this object will store and validate arguments provided in constructor.
+The object can then be used to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Open an saved PDF and check for compatibility and consistency with this object
+using <tt class="docutils literal"><span class="pre">readFromFile(checkFile</span> <span class="pre">=</span> <span class="pre">True)</span></tt>.</li>
+<li>Calculate a PDF by performing randomization iterations using <tt class="docutils literal"><span class="pre">randomize()</span></tt>, possibly
+appending existing iterations from an input file.</li>
+<li>Open an saved PDF and look up densities site-by-site using <tt class="docutils literal"><span class="pre">prepareLookup()</span></tt> and
+<tt class="docutils literal"><span class="pre">lookupDensities()</span></tt>.</li>
+</ul>
+</div></blockquote>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+<dt>sampleSize <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>sample size for random sampling operation</dd>
+<dt>scoreType <span class="classifier-delimiter">:</span> <span class="classifier">ScoreType.VALDAR, ScoreType.PROFILE or ScoreType.PROFILE_UNCORR</span></dt>
+<dd>type of score to calculate calculate</dd>
+<dt>subsMat <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SubsMat.SeqMat or VectorSubsMat object</span></dt>
+<dd>substitution matrix, transformed and converted to vector form if profile-based score being calculated</dd>
+<dt>distanceMatrix <span class="classifier-delimiter">:</span> <span class="classifier">NamedDict of evolutionary distances, optional, may be <tt class="docutils literal"><span class="pre">None</span></tt></span></dt>
+<dd>pre-calculated distance matrix giving pairwise distances between all records (if not provided, calculated automatically)</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.startMagicWord">
+<tt class="descname">startMagicWord</tt><em class="property"> = 'ProfileConsScore_PDFRand01_START'</em><a class="headerlink" href="#profscore.AlignmentPDF.startMagicWord" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em>, magic word at start of a saved <tt class="docutils literal"><span class="pre">ScoreProbDist</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.endMagicWord">
+<tt class="descname">endMagicWord</tt><em class="property"> = 'ProfileConsScore_PDFRand01_END'</em><a class="headerlink" href="#profscore.AlignmentPDF.endMagicWord" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em>, magic word at end of a saved <tt class="docutils literal"><span class="pre">ScoreProbDist</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.dataMagicWord">
+<tt class="descname">dataMagicWord</tt><em class="property"> = 'note header ends'</em><a class="headerlink" href="#profscore.AlignmentPDF.dataMagicWord" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em>, magic word for beginning of data section in file</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.sequenceIdHeader">
+<tt class="descname">sequenceIdHeader</tt><em class="property"> = 'sequence ids'</em><a class="headerlink" href="#profscore.AlignmentPDF.sequenceIdHeader" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em>, header used for sequence ids</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.randomizationsHeader">
+<tt class="descname">randomizationsHeader</tt><em class="property"> = 'total randomizations'</em><a class="headerlink" href="#profscore.AlignmentPDF.randomizationsHeader" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em>, header used for number of randomizations</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.records">
+<tt class="descname">records</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.records" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of Bio.SeqRecord objects</em>, list of records provided to this score object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.sampleSize">
+<tt class="descname">sampleSize</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.sampleSize" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, sample size of random sample</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.scoreType">
+<tt class="descname">scoreType</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.scoreType" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>ScoreType</em>, type of score</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.vectorSubsMat">
+<tt class="descname">vectorSubsMat</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.vectorSubsMat" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>VectorSubsMat object</em>, vector substitution matrix to use for scoring (if profile-based scoring used)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.subsMat">
+<tt class="descname">subsMat</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.subsMat" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Bio.SubsMat.SeqMat object</em>, subsitution matrix to use for scoring (if Valdar scoring used)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.distanceMatrix">
+<tt class="descname">distanceMatrix</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.distanceMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>NamedDict of evolutionary distances</em>, matrix of distances between all sequences</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.M">
+<tt class="descname">M</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.M" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, alignment length, i.e. total number of sites in alignment</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.totalRandomizations">
+<tt class="descname">totalRandomizations</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.totalRandomizations" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, total number of randomizations in this PDF</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.curSite">
+<tt class="descname">curSite</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.curSite" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, current site being read or processed</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.csvReader">
+<tt class="descname">csvReader</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.csvReader" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>csv.CSVReader</em> object, stored for use when reading randomization file</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.AlignmentPDF.filePosition">
+<tt class="descname">filePosition</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.AlignmentPDF.filePosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>one of <em>FilePosition</em> values, used when reading randomization file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.AlignmentPDF.prepareMetadata">
+<tt class="descname">prepareMetadata</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/profscore.html#AlignmentPDF.prepareMetadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.AlignmentPDF.prepareMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate and return metadata for this object.</p>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">OrderedDict</span></dt>
+<dd>OrderedDict containing metadata for this object.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.AlignmentPDF.randomize">
+<tt class="descname">randomize</tt><big>(</big><em>outputHandle</em>, <em>numRandomizations</em>, <em>inputHandle=None</em><big>)</big><a class="reference internal" href="_modules/profscore.html#AlignmentPDF.randomize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.AlignmentPDF.randomize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a certain number of randomizations to generate a PDF.</p>
+<p>In each randomization iteration, a random sample set of sequences is drawn
+for the list of records. Conservation scores are then calculated for this sample
+as per the method and options provided in the constructor.</p>
+<p>To conserve memory, randomizations are performed site-by-site. Scores for all
+randomizations for a given site are sorted in ascending order, binned (where
+identical scores are repeatedly obtained) and saved to disk.</p>
+<p>If an input file handle is given, randomizations will be
+read from that file and then appended to the new randomizations. The input file
+is checked for compatibility prior to starting.</p>
+<p>Once calculated, the data must be reread from the output file to lookup values
+from the PDF (see <tt class="docutils literal"><span class="pre">prepareLookup</span></tt>).</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>outputHandle <span class="classifier-delimiter">:</span> <span class="classifier">output file handle</span></dt>
+<dd>handle for randomization output file used for writing randomizations;
+for each site, data written immediately after randomizations for that site performed.
+if <tt class="docutils literal"><span class="pre">None</span></tt>, data is not written (for benchmarking)</dd>
+<dt>numRandomizations <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>number of randomizations to perform</dd>
+<dt>inputHandle <span class="classifier-delimiter">:</span> <span class="classifier">input file handle, optional</span></dt>
+<dd>handle for randomization input file used for reading existing randomizations;
+these are combined with the (additional) randomizations performed here prior to
+writing; if <tt class="docutils literal"><span class="pre">None</span></tt> (default), no existing randomizations will be read</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.AlignmentPDF.readFromFile">
+<tt class="descname">readFromFile</tt><big>(</big><em>inputHandle</em>, <em>checkFile=False</em><big>)</big><a class="reference internal" href="_modules/profscore.html#AlignmentPDF.readFromFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.AlignmentPDF.readFromFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a file containing a saved PDF, checking for compatibility with <tt class="docutils literal"><span class="pre">self</span></tt>. Data in file can
+then be read to check for consistency (if <tt class="docutils literal"><span class="pre">checkFile</span> <span class="pre">=</span> <span class="pre">True</span></tt>),
+or read site-by-site using <tt class="docutils literal"><span class="pre">readNextSite</span></tt> to obtain the PDF for each site.</p>
+<p>PDF given by <tt class="docutils literal"><span class="pre">inputHandle</span></tt> is tested for compatibility with arguments provided to constructor.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>inputHandle <span class="classifier-delimiter">:</span> <span class="classifier">input file handle</span></dt>
+<dd>handle for randomization input file</dd>
+<dt>checkFile <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt>, entire file is read and checked for compatibility and consistency, if function returns
+without throwing exceptions then the file passes these checks;
+if <tt class="docutils literal"><span class="pre">False</span></tt> (default), header is read and checked for compatibility, and then reading stopped
+prior to reading data, site-by-site reading can then be carried out using <tt class="docutils literal"><span class="pre">readNextSite</span></tt> to
+return the PDF for each site</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.AlignmentPDF.readNextSite">
+<tt class="descname">readNextSite</tt><big>(</big><em>checkFile=False</em><big>)</big><a class="reference internal" href="_modules/profscore.html#AlignmentPDF.readNextSite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.AlignmentPDF.readNextSite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a data from input file site-by-site. Should be called after <tt class="docutils literal"><span class="pre">readFromFile</span></tt> to allow header
+to be read and ensure file pointer is in the correct position.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>checkFile <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt>, returns boolean depending of whether site can be read correctly, used internally
+by <tt class="docutils literal"><span class="pre">readFromFile(checkFile</span> <span class="pre">=</span> <span class="pre">True)</span></tt>;
+if <tt class="docutils literal"><span class="pre">False</span></tt> (default), read the next site and return <tt class="docutils literal"><span class="pre">SitePDF</span></tt> object for the site</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">SitePDF object or boolean</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">checkFile==False</span></tt>, <tt class="docutils literal"><span class="pre">SitePDF</span></tt> for next site, position of site given by <tt class="docutils literal"><span class="pre">self.curSite</span></tt>;
+if <tt class="docutils literal"><span class="pre">checkFile==True</span></tt>, <tt class="docutils literal"><span class="pre">True</span></tt> if site can be read correctly</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.AlignmentPDF.combineFromMultiple">
+<tt class="descname">combineFromMultiple</tt><big>(</big><em>outputHandle</em>, <em>inputHandles</em><big>)</big><a class="reference internal" href="_modules/profscore.html#AlignmentPDF.combineFromMultiple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.AlignmentPDF.combineFromMultiple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="profscore.AlignmentPDF.prepareLookup">
+<tt class="descname">prepareLookup</tt><big>(</big><em>inputHandle</em><big>)</big><a class="reference internal" href="_modules/profscore.html#AlignmentPDF.prepareLookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.AlignmentPDF.prepareLookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare a file for looking-up values from the PDF site-by-site.
+PDF density for a site can then be found by calling <tt class="docutils literal"><span class="pre">lookupDensities</span></tt>.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>inputHandle <span class="classifier-delimiter">:</span> <span class="classifier">input file handle</span></dt>
+<dd>handle for randomization input file</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.AlignmentPDF.lookupDensities">
+<tt class="descname">lookupDensities</tt><big>(</big><em>site</em>, <em>score</em><big>)</big><a class="reference internal" href="_modules/profscore.html#AlignmentPDF.lookupDensities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.AlignmentPDF.lookupDensities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup densities in a prepared PDF. Must be called after <tt class="docutils literal"><span class="pre">prepareLookup()</span></tt>.</p>
+<p>Returns density in the PDF where function values ≥ <tt class="docutils literal"><span class="pre">score</span></tt>,
+as well as the total function density. As data is obtained by reading from current file position,
+must be called in increasing order of site numbers.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>site <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>index (0-based) of site to lookup density for, must be greater than <tt class="docutils literal"><span class="pre">self.curSite</span></tt></dd>
+<dt>score <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>score to return density for</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">tuple of (number,number)</span></dt>
+<dd>(density where function ≥ <tt class="docutils literal"><span class="pre">score</span></tt>, total density of function)</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.SitePDF">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">SitePDF</tt><a class="reference internal" href="_modules/profscore.html#SitePDF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SitePDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Probability density function for a single site (in an alignment).
+Stored as an array of discrete points (<tt class="docutils literal"><span class="pre">PDFPoint</span></tt> objects), each containing a value and a density.</p>
+<dl class="docutils">
+<dt>Initialized as an empty PDF (no points), use class methods to create a <tt class="docutils literal"><span class="pre">PDFPoint</span></tt>:</dt>
+<dd><ul class="first last simple">
+<li>From a an array of scores, using <tt class="docutils literal"><span class="pre">createFromScores()</span></tt>.</li>
+<li>By converting from a list of strings (e.g. read from a csv file) using <tt class="docutils literal"><span class="pre">convertFromStrList()</span></tt>.</li>
+<li>By combining two existing <tt class="docutils literal"><span class="pre">PDFPoint</span></tt> objects, usng <tt class="docutils literal"><span class="pre">createByCombining()</span></tt></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="profscore.SitePDF.array">
+<tt class="descname">array</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.SitePDF.array" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of PDFPoint objects</em>, array of points making up of this PDF</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="profscore.SitePDF.createFromScores">
+<em class="property">classmethod </em><tt class="descname">createFromScores</tt><big>(</big><em>scores</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SitePDF.createFromScores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SitePDF.createFromScores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new <tt class="docutils literal"><span class="pre">SitePDF</span></tt> object from an list/array of scores.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>scores <span class="classifier-delimiter">:</span> <span class="classifier">list of numbers</span></dt>
+<dd>list of scores to convert</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">SitePDF object</span></dt>
+<dd>SitePDF containing points created from the supplied scores</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="profscore.SitePDF.convertFromStrList">
+<em class="property">classmethod </em><tt class="descname">convertFromStrList</tt><big>(</big><em>strData</em>, <em>store=True</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SitePDF.convertFromStrList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SitePDF.convertFromStrList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new <tt class="docutils literal"><span class="pre">SitePDF</span></tt> object by converting from a list of strings to a series
+of points.</p>
+<p>Format is [<tt class="docutils literal"><span class="pre">'value1:density',</span> <span class="pre">'value2:density2',</span> <span class="pre">...]</span></tt>,
+if <tt class="docutils literal"><span class="pre">:density</span></tt> is absent, density is assumed to be 1.</p>
+<p>This format for a point (<tt class="docutils literal"><span class="pre">'value(:density)'</span></tt>) is produced by <tt class="docutils literal"><span class="pre">str(pdfPoint)</span></tt>.
+To produce a list of strings for all points in this format, use <tt class="docutils literal"><span class="pre">[str(item)</span> <span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">self.array]</span></tt>.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>strData <span class="classifier-delimiter">:</span> <span class="classifier">list of string</span></dt>
+<dd>string data to convert</dd>
+<dt>store <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> (default) read and store the data, otherwise just read without storing (for checking data format)</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">SitePDF object</span></dt>
+<dd>SitePDF containing points created from supplied data  or <tt class="docutils literal"><span class="pre">None</span></tt> if <tt class="docutils literal"><span class="pre">store</span></tt> is <tt class="docutils literal"><span class="pre">False</span></tt></dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="profscore.SitePDF.createByCombining">
+<em class="property">classmethod </em><tt class="descname">createByCombining</tt><big>(</big><em>sitePDFs</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SitePDF.createByCombining"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SitePDF.createByCombining" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new <tt class="docutils literal"><span class="pre">SitePDF</span></tt> object by combining multiple <tt class="docutils literal"><span class="pre">SitePDF</span></tt> objects.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>sitePDF <span class="classifier-delimiter">:</span> <span class="classifier">iterable of SitePDF objects</span></dt>
+<dd>objects to combine</dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">SitePDF object</span></dt>
+<dd>SitePDF containing points created by combining the supplied objects</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.SitePDF.density">
+<tt class="descname">density</tt><big>(</big><em>score</em>, <em>oper</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SitePDF.density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SitePDF.density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return summed density of this object for values that return <tt class="docutils literal"><span class="pre">True</span></tt> for <tt class="docutils literal"><span class="pre">oper(value,score)</span></tt>.
+e.g. <tt class="docutils literal"><span class="pre">density(0.7,operator.ge)</span></tt> will return density where value is ≥ 0.7.</p>
+<blockquote>
+<div><p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>score <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>comparison number</dd>
+<dt>oper <span class="classifier-delimiter">:</span> <span class="classifier">operator</span></dt>
+<dd>operator to use for comparison, e.g. <tt class="docutils literal"><span class="pre">operator.ge</span></tt></dd>
+</dl>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>summed density</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.SitePDF.totalDensity">
+<tt class="descname">totalDensity</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/profscore.html#SitePDF.totalDensity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SitePDF.totalDensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum total density of this object.</p>
+<blockquote>
+<div><p>Return:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>total density in this object</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.PDFPoint">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">PDFPoint</tt><big>(</big><em>value</em>, <em>density=0</em><big>)</big><a class="reference internal" href="_modules/profscore.html#PDFPoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.PDFPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a single point of a probability density function containing a value and a density.
+Can be compared (<tt class="docutils literal"><span class="pre">==,</span> <span class="pre">&lt;</span></tt> etc.) to numbers and other <tt class="docutils literal"><span class="pre">PDFPoint</span></tt> objects to allow ordering
+and testing whether this <tt class="docutils literal"><span class="pre">PDFPoint</span></tt> represents same value.</p>
+<p>Note that values are considered equal if their difference is less than a very small value to allow
+for discrete nature of IEEE floating point representation (see <tt class="docutils literal"><span class="pre">approxEqual()</span></tt>).</p>
+<p>Allows conversion to string in the format <tt class="docutils literal"><span class="pre">value:density</span></tt> or <tt class="docutils literal"><span class="pre">value</span></tt> (if <tt class="docutils literal"><span class="pre">density=1</span></tt>) using
+<tt class="docutils literal"><span class="pre">str(pdfPoint)</span></tt>.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>value <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>value of the point</dd>
+<dt>density <span class="classifier-delimiter">:</span> <span class="classifier">number, optional</span></dt>
+<dd>density of the point, stored as an integer indicating
+number of times this value obtained by randomization</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="profscore.PDFPoint.value">
+<tt class="descname">value</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.PDFPoint.value" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, value of this point</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="profscore.PDFPoint.density">
+<tt class="descname">density</tt><em class="property"> = None</em><a class="headerlink" href="#profscore.PDFPoint.density" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number</em>, density of this point (integer)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.PDFPoint.increment">
+<tt class="descname">increment</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/profscore.html#PDFPoint.increment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.PDFPoint.increment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increment the density of this point by one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.PDFPoint.combineIfEqual">
+<tt class="descname">combineIfEqual</tt><big>(</big><em>other</em><big>)</big><a class="reference internal" href="_modules/profscore.html#PDFPoint.combineIfEqual"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.PDFPoint.combineIfEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine this <tt class="docutils literal"><span class="pre">PDFPoint</span></tt> with another if the two have an (approximately) equal value.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>other <span class="classifier-delimiter">:</span> <span class="classifier">PDFPoint</span></dt>
+<dd>other <tt class="docutils literal"><span class="pre">PDFPoint</span></tt> to possibly combine with</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.PDFPoint.checkComparable">
+<tt class="descname">checkComparable</tt><big>(</big><em>other</em><big>)</big><a class="reference internal" href="_modules/profscore.html#PDFPoint.checkComparable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.PDFPoint.checkComparable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether this <tt class="docutils literal"><span class="pre">PDFPoint</span></tt> can be compared to <tt class="docutils literal"><span class="pre">other</span></tt>. Returns the value of
+<tt class="docutils literal"><span class="pre">other</span></tt> to compare against if <tt class="docutils literal"><span class="pre">other</span></tt> is another <tt class="docutils literal"><span class="pre">PDFPoint</span></tt> or same type as
+<tt class="docutils literal"><span class="pre">self.value</span></tt>, returns <tt class="docutils literal"><span class="pre">None</span></tt> otherwise.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>other <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd>other object to test</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.PDFPoint.approxEqual">
+<tt class="descname">approxEqual</tt><big>(</big><em>otherValue</em><big>)</big><a class="reference internal" href="_modules/profscore.html#PDFPoint.approxEqual"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.PDFPoint.approxEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <tt class="docutils literal"><span class="pre">True</span></tt> if difference between <tt class="docutils literal"><span class="pre">self.value</span></tt> and <tt class="docutils literal"><span class="pre">otherValue</span></tt> is less than
+<tt class="docutils literal"><span class="pre">1e-12</span></tt>, used to test equality given discrete nature of IEEE floating point
+representation and possible round-off error when calculating conservation scores.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>otherValue <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd>other object to test</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.getAllSites">
+<tt class="descclassname">profscore.</tt><tt class="descname">getAllSites</tt><big>(</big><em>records</em><big>)</big><a class="reference internal" href="_modules/profscore.html#getAllSites"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.getAllSites" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all sites in the alignment.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.getPresentSites">
+<tt class="descclassname">profscore.</tt><tt class="descname">getPresentSites</tt><big>(</big><em>records</em><big>)</big><a class="reference internal" href="_modules/profscore.html#getPresentSites"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.getPresentSites" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all present sites in the alignment.
+A present site must be represented by a non-gap character
+in at least one sequence.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects</span></dt>
+<dd>list of aligned sequences to process</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="profscore.SequenceNumerator">
+<em class="property">class </em><tt class="descclassname">profscore.</tt><tt class="descname">SequenceNumerator</tt><big>(</big><em>start</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SequenceNumerator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SequenceNumerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator for sequence numbering.
+Skips from -1 to +1 (no 0).
+Allows subnumbering for gap positions, i.e. 1,1a,1b,1c.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>start <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>starting number</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="profscore.SequenceNumerator.subnums">
+<tt class="descname">subnums</tt><em class="property"> = 'abcdefghijklmnopqrstuvwxyz'</em><a class="headerlink" href="#profscore.SequenceNumerator.subnums" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em>, suffixes to use for subnumbering</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.SequenceNumerator.reset">
+<tt class="descname">reset</tt><big>(</big><em>start</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SequenceNumerator.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SequenceNumerator.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset numbering to new starting position.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>start <span class="classifier-delimiter">:</span> <span class="classifier">number</span></dt>
+<dd>starting number</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.SequenceNumerator.next">
+<tt class="descname">next</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/profscore.html#SequenceNumerator.next"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SequenceNumerator.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return next (whole) number.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profscore.SequenceNumerator.subnext">
+<tt class="descname">subnext</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/profscore.html#SequenceNumerator.subnext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SequenceNumerator.subnext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return next sub number, e.g. 1a, 1b etc.
+Must be called after a call to <tt class="docutils literal"><span class="pre">next()</span></tt>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.generateGenericReport">
+<tt class="descclassname">profscore.</tt><tt class="descname">generateGenericReport</tt><big>(</big><em>outputHandle</em>, <em>outputObject</em>, <em>records=None</em>, <em>alignmentPDF=None</em>, <em>referenceId=None</em>, <em>outputPositions=2</em>, <em>simpleNumbering=False</em>, <em>numberingStart=1</em>, <em>blockSequenceOutput=False</em>, <em>showCompleteProfile=False</em>, <em>pAsFraction=False</em><big>)</big><a class="reference internal" href="_modules/profscore.html#generateGenericReport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.generateGenericReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a conservation score report</p>
+<p>Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>path <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>output path for the report</dd>
+<dt>outputObject <span class="classifier-delimiter">:</span> <span class="classifier">ConservationScores or SequenceProfile object</span></dt>
+<dd>scores or profile to output in the report</dd>
+<dt>records <span class="classifier-delimiter">:</span> <span class="classifier">list of Bio.SeqRecord objects, optional</span></dt>
+<dd>list of aligned sequences to output, use to override records stored in <tt class="docutils literal"><span class="pre">outputObject</span></tt></dd>
+<dt>alignmentPDF <span class="classifier-delimiter">:</span> <span class="classifier">ScoreProbDist object, optional</span></dt>
+<dd>probability distribution of the scores at each site, used to assign p-values, if absent not p-values written;
+must be prepared for lookup by precalling <tt class="docutils literal"><span class="pre">prepareLookup</span></tt></dd>
+<dt>referenceId <span class="classifier-delimiter">:</span> <span class="classifier">string, optional</span></dt>
+<dd>sequence record id to use as the reference sequence, used for numbering site positions, if absent first second used for numbering</dd>
+<dt>outputPositions <span class="classifier-delimiter">:</span> <span class="classifier">OutputPositions.ALL, OutputPositions.PRESENT or OutputPositions.REFERENCE, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">OutputPositions.ALL</span></tt> scores for all positions written,
+if <tt class="docutils literal"><span class="pre">OutputPositions.PRESENT</span></tt> (default) only present positions written (i.e. at least one non-gap at site),
+if <tt class="docutils literal"><span class="pre">OutputPositions.REFERENCE</span></tt> only positions in reference sequence written (i.e. at least one non-gap at site),</dd>
+<dt>simpleNumbering <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> simple numbering (1,2,3...) used, otherwise (default) numbering is for reference sequence</dd>
+<dt>numberingStart <span class="classifier-delimiter">:</span> <span class="classifier">number, optional</span></dt>
+<dd>number used to start numbering, if absent numbering starts from 1</dd>
+<dt>blockSequenceOutput <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> sequences output as a block (column) of text, with one block for all scored sequences and
+one block for sequences not scored (but added to output), otherwise (default) each sequence is written to individual columns</dd>
+<dt>showCompleteProfile <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> complete sequence profile shown (i.e. score for each amino acid), otherwise (default) profile not shown; only valid for <tt class="docutils literal"><span class="pre">ProfileScore</span></tt> or <tt class="docutils literal"><span class="pre">SequenceProfile</span></tt></dd>
+<dt>pAsFraction <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
+<dd>if <tt class="docutils literal"><span class="pre">True</span></tt> p-values produced as fraction e.g. 130/1000, otherwise (default) produced as a proportion</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="profscore.main">
+<tt class="descclassname">profscore.</tt><tt class="descname">main</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/profscore.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute main script code function.</p>
+<p>Verbosity levels:</p>
+<blockquote>
+<div><p>0/None : default, main messages</p>
+<p>1 : a few extra messages showing progress</p>
+<p>2 : outputs top level calculations</p>
+<p>3 : outputs mid-level calculations</p>
+<p>4 : outputs detailed calculations</p>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">profscore: Profile Conservation Scoring documentation</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">profscore: Profile Conservation Scoring 1.0.8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Tet Woo Lee.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
