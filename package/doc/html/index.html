@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>profscore: Profile Conservation Scoring documentation &mdash; profscore: Profile Conservation Scoring 1.0.8 documentation</title>
+    <title>profscore: Profile Conservation Scoring documentation &mdash; profscore: Profile Conservation Scoring 1.0.9 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0.8',
+        VERSION:     '1.0.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="profscore: Profile Conservation Scoring 1.0.8 documentation" href="#" /> 
+    <link rel="top" title="profscore: Profile Conservation Scoring 1.0.9 documentation" href="#" /> 
   </head>
   <body>
     <div class="related">
@@ -35,7 +35,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="#">profscore: Profile Conservation Scoring 1.0.8 documentation</a> &raquo;</li> 
+        <li><a href="#">profscore: Profile Conservation Scoring 1.0.9 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -1282,7 +1282,10 @@ To produce a list of strings for all points in this format, use <tt class="docut
 <dt id="profscore.SitePDF.density">
 <tt class="descname">density</tt><big>(</big><em>score</em>, <em>oper</em><big>)</big><a class="reference internal" href="_modules/profscore.html#SitePDF.density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#profscore.SitePDF.density" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return summed density of this object for values that return <tt class="docutils literal"><span class="pre">True</span></tt> for <tt class="docutils literal"><span class="pre">oper(value,score)</span></tt>.
-e.g. <tt class="docutils literal"><span class="pre">density(0.7,operator.ge)</span></tt> will return density where value is ≥ 0.7.</p>
+e.g. <tt class="docutils literal"><span class="pre">density(0.7,operator.ge)</span></tt> will return density where value is ≥ 0.7.
+IMPORTANT: Keep in mind that equality comparisons for floating point numbers may be unsafe. To
+ensure that comparisons to 1.0 (absolute conservation) succeed, use a greater than or 
+approximately equal operator (e.g. <tt class="docutils literal"><span class="pre">lambda</span> <span class="pre">a,b:</span> <span class="pre">operator.ge(a,b)</span> <span class="pre">or</span> <span class="pre">abs(a-b)</span> <span class="pre">&lt;</span> <span class="pre">1e-12</span></tt>)</p>
 <blockquote>
 <div><p>Arguments:</p>
 <blockquote>
@@ -1582,7 +1585,7 @@ one block for sequences not scored (but added to output), otherwise (default) ea
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="#">profscore: Profile Conservation Scoring 1.0.8 documentation</a> &raquo;</li> 
+        <li><a href="#">profscore: Profile Conservation Scoring 1.0.9 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>profscore &mdash; profscore: Profile Conservation Scoring 1.0.8 documentation</title>
+    <title>profscore &mdash; profscore: Profile Conservation Scoring 1.0.9 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.0.8',
+        VERSION:     '1.0.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="profscore: Profile Conservation Scoring 1.0.8 documentation" href="../index.html" />
+    <link rel="top" title="profscore: Profile Conservation Scoring 1.0.9 documentation" href="../index.html" />
     <link rel="up" title="Module code" href="index.html" /> 
   </head>
   <body>
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">profscore: Profile Conservation Scoring 1.0.8 documentation</a> &raquo;</li>
+        <li><a href="../index.html">profscore: Profile Conservation Scoring 1.0.9 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>  
@@ -1586,7 +1586,7 @@
           <span class="k">if</span> <span class="n">verbose</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">:</span> <span class="k">print</span> <span class="s">&quot;Read site </span><span class="si">%i</span><span class="s"> from file.&quot;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">curSite</span>
           <span class="k">assert</span><span class="p">(</span><span class="n">site1</span><span class="o">&gt;=</span><span class="bp">self</span><span class="o">.</span><span class="n">curSite</span><span class="p">)</span>
           <span class="k">if</span> <span class="n">site1</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">curSite</span><span class="p">:</span> <span class="k">break</span>
-        <span class="n">density</span> <span class="o">=</span> <span class="n">sitePDF</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">score</span><span class="p">,</span><span class="n">operator</span><span class="o">.</span><span class="n">ge</span><span class="p">)</span>
+        <span class="n">density</span> <span class="o">=</span> <span class="n">sitePDF</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">score</span><span class="p">,</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">)</span> <span class="c"># greater or APPROX equal to allow for rounding error (important for comparisons to 1.0)</span>
         <span class="n">totalDensity</span> <span class="o">=</span> <span class="n">sitePDF</span><span class="o">.</span><span class="n">totalDensity</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="o">&gt;=</span><span class="mi">2</span><span class="p">:</span> <span class="k">print</span> <span class="s">&quot;Looked up density for site </span><span class="si">%i</span><span class="s"> is </span><span class="si">%i</span><span class="s">/</span><span class="si">%i</span><span class="s"> when random score&gt;=</span><span class="si">%.4f</span><span class="s">.&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">site1</span><span class="p">,</span><span class="n">density</span><span class="p">,</span><span class="n">totalDensity</span><span class="p">,</span><span class="n">score</span><span class="p">)</span>
         <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">totalRandomizations</span><span class="o">==</span><span class="n">totalDensity</span><span class="p">)</span>
@@ -1711,6 +1711,10 @@
       <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">      Return summed density of this object for values that return ``True`` for ``oper(value,score)``.</span>
 <span class="sd">      e.g. ``density(0.7,operator.ge)`` will return density where value is ≥ 0.7.</span>
+<span class="sd">      IMPORTANT: Keep in mind that equality comparisons for floating point numbers may be unsafe. To</span>
+<span class="sd">      ensure that comparisons to 1.0 (absolute conservation) succeed, use a greater than or </span>
+<span class="sd">      approximately equal operator (e.g. ``lambda a,b: operator.ge(a,b) or abs(a-b) &lt; 1e-12``)</span>
+
 
 <span class="sd">        Arguments:</span>
 
@@ -2561,7 +2565,7 @@
   <span class="k">print</span> <span class="s">&quot;Complete!&quot;</span>
 </div>
 <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">version</span> <span class="o">=</span> <span class="s">&quot;v1.0.8&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s">&quot;v1.0.9&quot;</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
@@ -2598,7 +2602,7 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">profscore: Profile Conservation Scoring 1.0.8 documentation</a> &raquo;</li>
+        <li><a href="../index.html">profscore: Profile Conservation Scoring 1.0.9 documentation</a> &raquo;</li>
           <li><a href="index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>

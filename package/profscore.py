@@ -1537,7 +1537,7 @@ class AlignmentPDF:
           if verbose>=3: print "Read site %i from file."%self.curSite
           assert(site1>=self.curSite)
           if site1==self.curSite: break
-        density = sitePDF.density(score,operator.ge)
+        density = sitePDF.density(score,lambda a,b: operator.ge(a,b) or abs(a-b) < 1e-12) # greater or APPROX equal to allow for rounding error (important for comparisons to 1.0)
         totalDensity = sitePDF.totalDensity()
         if verbose>=2: print "Looked up density for site %i is %i/%i when random score>=%.4f."%(site1,density,totalDensity,score)
         assert(self.totalRandomizations==totalDensity)
@@ -1662,6 +1662,10 @@ class SitePDF:
       """
       Return summed density of this object for values that return ``True`` for ``oper(value,score)``.
       e.g. ``density(0.7,operator.ge)`` will return density where value is ≥ 0.7.
+      IMPORTANT: Keep in mind that equality comparisons for floating point numbers may be unsafe. To
+      ensure that comparisons to 1.0 (absolute conservation) succeed, use a greater than or 
+      approximately equal operator (e.g. ``lambda a,b: operator.ge(a,b) or abs(a-b) < 1e-12``)
+
 
         Arguments:
 
@@ -2245,7 +2249,7 @@ def main():
   # get consensus arguments
   consOptions = None
   if isProfileScore(scoreOptions.scoreType):
-    if args.cutoff:
+    if args.cutoff is not None:
       consOptions = Dummy()
       consOptions.cutoffAbs = float(args.cutoff)
       consOptions.cutoffProp = float(args.propcutoff)
@@ -2512,7 +2516,7 @@ def main():
   print "Complete!"
 
 verbose = 0
-version = "v1.0.8"
+version = "v1.0.9"
 
 if __name__ == "__main__":
     main()
